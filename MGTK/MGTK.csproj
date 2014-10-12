@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>10.0.0</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{AF2F8E96-CDA5-4C96-A7E8-F5DB350ED011}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <RootNamespace>MGTK</RootNamespace>
+    <AssemblyName>MGTK</AssemblyName>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug</OutputPath>
+    <DefineConstants>DEBUG;</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <ConsolePause>false</ConsolePause>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>none</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release</OutputPath>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <ConsolePause>false</ConsolePause>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="MonoGame.Framework, Version=3.0.1.0, Culture=neutral">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AssemblyInfo.cs" />
+    <Compile Include="Tileset\Tileset.cs" />
+    <Compile Include="Tileset\TilesetItem.cs" />
+    <Compile Include="Tileset\TilesetItemAttribute.cs" />
+    <Compile Include="Tileset\IO.cs" />
+    <Compile Include="Fonts\BitmapFont.cs" />
+    <Compile Include="Fonts\FontChar.cs" />
+    <Compile Include="Fonts\FontCommon.cs" />
+    <Compile Include="Fonts\FontFile.cs" />
+    <Compile Include="Fonts\FontInfo.cs" />
+    <Compile Include="Fonts\FontKerning.cs" />
+    <Compile Include="Fonts\FontPage.cs" />
+    <Compile Include="Controls\Button.cs" />
+    <Compile Include="Controls\CheckBox.cs" />
+    <Compile Include="Controls\ComboBox.cs" />
+    <Compile Include="Controls\CheckedListBox.cs" />
+    <Compile Include="Controls\Control.cs" />
+    <Compile Include="Controls\Form.cs" />
+    <Compile Include="Controls\GroupBox.cs" />
+    <Compile Include="Controls\InnerListBox.cs" />
+    <Compile Include="Controls\InnerScrollbar.cs" />
+    <Compile Include="Controls\InnerTextBox.cs" />
+    <Compile Include="Controls\Label.cs" />
+    <Compile Include="Controls\ListBox.cs" />
+    <Compile Include="Controls\NumericUpDown.cs" />
+    <Compile Include="Controls\Picturebox.cs" />
+    <Compile Include="Controls\ProgressBar.cs" />
+    <Compile Include="Controls\RadioButton.cs" />
+    <Compile Include="Controls\Scrollbar.cs" />
+    <Compile Include="Controls\Tab.cs" />
+    <Compile Include="Controls\TabPage.cs" />
+    <Compile Include="Controls\TitleBar.cs" />
+    <Compile Include="Controls\TrackBar.cs" />
+    <Compile Include="Controls\TreeListBox.cs" />
+    <Compile Include="Controls\WindowSizeBar.cs" />
+    <Compile Include="Controls\TextBox.cs" />
+    <Compile Include="Services\WindowManager.cs" />
+    <Compile Include="Services\Drawing.cs" />
+    <Compile Include="EventArguments\ControlKeyEventArgs.cs" />
+    <Compile Include="EventArguments\TextChangingEventArgs.cs" />
+    <Compile Include="Messaging\Messages.cs" />
+    <Compile Include="Theming\Theme.cs" />
+    <Compile Include="Theming\ThemeIO.cs" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <ItemGroup>
+    <Folder Include="Tileset\" />
+    <Folder Include="Fonts\" />
+    <Folder Include="Controls\" />
+    <Folder Include="Services\" />
+    <Folder Include="EventArguments\" />
+    <Folder Include="Messaging\" />
+    <Folder Include="Theming\" />
+  </ItemGroup>
+</Project>
