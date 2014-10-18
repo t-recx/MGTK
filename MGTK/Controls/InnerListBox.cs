@@ -108,7 +108,7 @@ namespace MGTK.Controls
             get
             {
                 if (fontHeight <= 0)
-                    fontHeight = Drawing.GetBMFontHeight(Font);
+                    fontHeight = DrawingService.GetBMFontHeight(Font);
 
                 return fontHeight;
             }
@@ -211,7 +211,7 @@ namespace MGTK.Controls
                 string itemText = Items[i].Text;
 
                 if (i == SelectedIndex)
-                    Drawing.DrawRectangle(spriteBatch, Theme.SelectedListItemBackground, Color.White, X + OwnerX,
+                    DrawingService.DrawRectangle(spriteBatch, Theme.SelectedListItemBackground, Color.White, X + OwnerX,
                         Y + OwnerY + (i - ScrollY) * FontHeight, Width, FontHeight, Z - 0.001f);
 
                 if (itemText.Length < ScrollX)
@@ -229,7 +229,7 @@ namespace MGTK.Controls
                     itemXPadding += Items[i].Ctrl.Width;
                 }
 
-				Drawing.DrawBMString(spriteBatch, Font, itemText, X + OwnerX + itemXPadding,
+				DrawingService.DrawBMString(spriteBatch, Font, itemText, X + OwnerX + itemXPadding,
                     Y + OwnerY + (i - ScrollY) * FontHeight, ForeColor, Z - 0.0015f);
             }
 

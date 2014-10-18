@@ -179,7 +179,7 @@ namespace MGTK.Controls
 
         public override void Draw()
         {
-            Drawing.DrawFrame(spriteBatch, Theme.NumericUpDownFrame, OwnerX + X, OwnerY + Y, 
+            DrawingService.DrawFrame(spriteBatch, Theme.NumericUpDownFrame, OwnerX + X, OwnerY + Y, 
                 Width, Height, Z - 0.001f);
 
             base.Draw();

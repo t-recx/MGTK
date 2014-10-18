@@ -204,10 +204,10 @@ namespace MGTK.Controls
 
         public override void Draw()
         {
-            Drawing.DrawRectangle(spriteBatch, Theme.Dot, Color.Black, X, Y, Width, 1, Z - 0.002f);
-            Drawing.DrawRectangle(spriteBatch, Theme.Dot, Color.Black, X, Y + Height - 1, Width, 1, Z - 0.002f);
-            Drawing.DrawRectangle(spriteBatch, Theme.Dot, Color.Black, X, Y, 1, Height, Z - 0.002f);
-            Drawing.DrawRectangle(spriteBatch, Theme.Dot, Color.Black, X + Width - 1, Y, 1, Height, Z - 0.002f);
+            DrawingService.DrawRectangle(spriteBatch, Theme.Dot, Color.Black, X, Y, Width, 1, Z - 0.002f);
+            DrawingService.DrawRectangle(spriteBatch, Theme.Dot, Color.Black, X, Y + Height - 1, Width, 1, Z - 0.002f);
+            DrawingService.DrawRectangle(spriteBatch, Theme.Dot, Color.Black, X, Y, 1, Height, Z - 0.002f);
+            DrawingService.DrawRectangle(spriteBatch, Theme.Dot, Color.Black, X + Width - 1, Y, 1, Height, Z - 0.002f);
 
             base.Draw();
         }

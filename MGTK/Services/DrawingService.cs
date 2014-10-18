@@ -10,17 +10,18 @@ using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework.Media;
 using MGTK.Fonts;
 using MGTK.Theming;
+using MGTK.Interfaces.Services;
 
 namespace MGTK.Services
 {
-    public static class Drawing
+    public class DrawingService : IDrawingService
     {
-        public static void Draw(SpriteBatch spriteBatch, Texture2D texture, Vector2 position, Color color, float layerDepth)
+        public void Draw(SpriteBatch spriteBatch, Texture2D texture, Vector2 position, Color color, float layerDepth)
         {
             spriteBatch.Draw(texture, position, null, color, 0, new Vector2(0, 0), 1, SpriteEffects.None, layerDepth);
         }
 
-        public static void Draw(SpriteBatch spriteBatch, Texture2D texture, int x, int y, int width, int height, Color color, bool stretch, float layerDepth)
+        public void Draw(SpriteBatch spriteBatch, Texture2D texture, int x, int y, int width, int height, Color color, bool stretch, float layerDepth)
         {
             Rectangle ?sourceRect = null;
 
@@ -30,7 +31,7 @@ namespace MGTK.Services
             spriteBatch.Draw(texture, new Rectangle(x, y, width, height), sourceRect, color, 0, new Vector2(0, 0), SpriteEffects.None, layerDepth);
         }
 
-		public static void DrawBMString (SpriteBatch spriteBatch, BitmapFont font, string text, int x, int y, Color color, float depth)
+		public void DrawBMString (SpriteBatch spriteBatch, BitmapFont font, string text, int x, int y, Color color, float depth)
 		{
 			if (text == null) 
 				return;
@@ -63,7 +64,7 @@ namespace MGTK.Services
 			}
 		}
 
-        public static void DrawBMCenteredText(SpriteBatch spriteBatch, BitmapFont font, string text, int x, int y, Color drawColor, Color? shadowColor, float layerDepth)
+        public void DrawBMCenteredText(SpriteBatch spriteBatch, BitmapFont font, string text, int x, int y, Color drawColor, Color? shadowColor, float layerDepth)
         {
             if (text == null)
                 return;
@@ -73,7 +74,7 @@ namespace MGTK.Services
             DrawBMTextShadow(spriteBatch, font, text, centerXPosition, y, drawColor, shadowColor, layerDepth);
         }
 
-        public static void DrawBMTextShadow(SpriteBatch spriteBatch, BitmapFont font, string text, int x, int y, Color drawColor, Color? shadowColor, float layerDepth)
+        public void DrawBMTextShadow(SpriteBatch spriteBatch, BitmapFont font, string text, int x, int y, Color drawColor, Color? shadowColor, float layerDepth)
         {
             if (shadowColor.HasValue)
 				DrawBMString(spriteBatch, font, text, x + 1, y + 1, drawColor, layerDepth);
@@ -81,7 +82,7 @@ namespace MGTK.Services
             DrawBMString(spriteBatch, font, text, x, y, drawColor, layerDepth);
         }
 
-        public static void DrawFrame(SpriteBatch spriteBatch, int x, int y, int width, int height, 
+        public void DrawFrame(SpriteBatch spriteBatch, int x, int y, int width, int height, 
             Texture2D UpLeftCorner, Texture2D UpRightCorner, Texture2D DownLeftCorner, Texture2D DownRightCorner,
             Texture2D LeftBar, Texture2D RightBar, Texture2D UpBar, Texture2D DownBar,
             Texture2D Background, float layerDepth)
@@ -108,13 +109,13 @@ namespace MGTK.Services
                 Draw(spriteBatch, DownRightCorner, new Vector2(x + width - DownRightCorner.Width, y + height - DownLeftCorner.Height), Color.White, layerDepth - 0.000012f);
         }
 
-        public static void DrawFrame(SpriteBatch spriteBatch, List<Texture2D> frame, int x, int y, int width, int height, float layerDepth)
+        public void DrawFrame(SpriteBatch spriteBatch, List<Texture2D> frame, int x, int y, int width, int height, float layerDepth)
         {
             DrawFrame(spriteBatch, x, y, width, height, frame[(int)FramePart.UpLeft], frame[(int)FramePart.UpRight], frame[(int)FramePart.DownLeft], frame[(int)FramePart.DownRight],
                 frame[(int)FramePart.Left], frame[(int)FramePart.Right], frame[(int)FramePart.Up], frame[(int)FramePart.Down], frame[(int)FramePart.Background], layerDepth);
         }
 
-        public static void DrawRectangle(SpriteBatch spriteBatch, Texture2D dot, Color color, int x, int y, int width, int height, float layerDepth)
+        public void DrawRectangle(SpriteBatch spriteBatch, Texture2D dot, Color color, int x, int y, int width, int height, float layerDepth)
         {
             if (dot == null)
                 return;
@@ -122,12 +123,12 @@ namespace MGTK.Services
             spriteBatch.Draw(dot, new Rectangle(x, y, width, height), null, color, 0, new Vector2(0, 0), SpriteEffects.None, layerDepth);
         }
 
-		public static int MeasureString(BitmapFont font, string s)
+		public int MeasureString(BitmapFont font, string s)
 		{
 			return font.MeasureString(s);
 		}
 
-		public static int GetBMFontHeight (BitmapFont font)
+		public int GetBMFontHeight (BitmapFont font)
 		{
 			return font.FontHeight;
 		}

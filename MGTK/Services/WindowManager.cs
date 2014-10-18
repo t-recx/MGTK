@@ -12,6 +12,8 @@ using Microsoft.Xna.Framework.Media;
 using MGTK.Controls;
 using MGTK.Messaging;
 using MGTK.Theming;
+using MGTK.Interfaces.Services;
+using MGTK.Factories;
 
 namespace MGTK.Services
 {
@@ -41,13 +43,31 @@ namespace MGTK.Services
         public int ScreenWidth, ScreenHeight;
 
         bool Initialized = false;
+		
+		private IDrawingService _DrawingService = null;
+
+		public IDrawingService DrawingService
+		{
+			get
+			{
+				if (_DrawingService == null)
+					_DrawingService = DrawingServiceFactory.GetSingletonInstance ();
+
+				return _DrawingService;
+			}
+			set
+			{
+				_DrawingService = value;
+			}
+		}
 
         public WindowManager(int maximizedwindowwidth, int maximizedwindowheight)
         {
             ScreenWidth = MaximizedWindowWidth = maximizedwindowwidth;
             ScreenHeight = MaximizedWindowHeight = maximizedwindowheight;
 
-            Forms = new List<Form>();        }
+            Forms = new List<Form>();        
+		}
 
         public void Draw(GraphicsDevice gDevice, SpriteBatch sBatch)
         {
@@ -60,7 +80,7 @@ namespace MGTK.Services
                 Messages.SendMessage(form, MessageEnum.Draw, null);
 
             if (MouseCursor != null)
-                Drawing.Draw(spriteBatch, MouseCursor, new Vector2(MouseX, MouseY), Color.White, 0);
+                DrawingService.Draw(spriteBatch, MouseCursor, new Vector2(MouseX, MouseY), Color.White, 0);
         }
 
         public void Update(GameTime gTime)

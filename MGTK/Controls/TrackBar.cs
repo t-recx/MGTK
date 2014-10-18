@@ -283,9 +283,9 @@ namespace MGTK.Controls
             }
 
             if (Orientation == TrackBarOrientation.Horizontal)
-                Drawing.DrawFrame(spriteBatch, Theme.SliderBarFrame, OwnerX + X, OwnerY + Y + Height / 2 - 2, Width, 4, Z - 0.000001f);
+                DrawingService.DrawFrame(spriteBatch, Theme.SliderBarFrame, OwnerX + X, OwnerY + Y + Height / 2 - 2, Width, 4, Z - 0.000001f);
             else
-                Drawing.DrawFrame(spriteBatch, Theme.SliderBarFrame, OwnerX + X + Width / 2 - 2, OwnerY + Y, 4, Height, Z - 0.000001f);
+                DrawingService.DrawFrame(spriteBatch, Theme.SliderBarFrame, OwnerX + X + Width / 2 - 2, OwnerY + Y, 4, Height, Z - 0.000001f);
 
             base.Draw();
         }
@@ -318,7 +318,7 @@ namespace MGTK.Controls
                     tH = 1;
                 }
 
-                Drawing.DrawRectangle(spriteBatch, Theme.Dot, ForeColor,
+                DrawingService.DrawRectangle(spriteBatch, Theme.Dot, ForeColor,
                     OwnerX + X + tX, OwnerY + Y + tY, tW, tH, Z - 0.00001f);
             }
 
@@ -339,7 +339,7 @@ namespace MGTK.Controls
                     tH = 1;
                 }
 
-                Drawing.DrawRectangle(spriteBatch, Theme.Dot, ForeColor,
+                DrawingService.DrawRectangle(spriteBatch, Theme.Dot, ForeColor,
                     OwnerX + X + tX, OwnerY + Y + tY, tW, tH, Z - 0.00001f);
             }
         }

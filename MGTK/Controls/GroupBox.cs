@@ -42,16 +42,16 @@ namespace MGTK.Controls
         {
             if (Frame != null)
             {
-                Drawing.DrawFrame(spriteBatch, Frame, OwnerX + X,
-                    OwnerY + Y + Drawing.GetBMFontHeight(Font) / 2, Width, Height - Drawing.GetBMFontHeight(Font) / 2, Z);
+                DrawingService.DrawFrame(spriteBatch, Frame, OwnerX + X,
+                    OwnerY + Y + DrawingService.GetBMFontHeight(Font) / 2, Width, Height - DrawingService.GetBMFontHeight(Font) / 2, Z);
 
-                Drawing.DrawRectangle(spriteBatch, Frame[(int)FramePart.Background], Color.White,
+                DrawingService.DrawRectangle(spriteBatch, Frame[(int)FramePart.Background], Color.White,
                     OwnerX + X + Width / 2 - Font.MeasureString(Text) / 2, 
                     OwnerY + Y,
-                    Font.MeasureString(Text), Drawing.GetBMFontHeight(Font), Z - 0.0018f);
+                    Font.MeasureString(Text), DrawingService.GetBMFontHeight(Font), Z - 0.0018f);
             }
 
-            Drawing.DrawBMCenteredText(spriteBatch, Font, Text, OwnerX + X + Width / 2, OwnerY + Y, ForeColor, null, Z - 0.002f);
+            DrawingService.DrawBMCenteredText(spriteBatch, Font, Text, OwnerX + X + Width / 2, OwnerY + Y, ForeColor, null, Z - 0.002f);
 
             if (Controls != null)
                 for (int i = 0; i < Controls.Count; i++)

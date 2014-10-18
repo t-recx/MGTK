@@ -195,7 +195,7 @@ namespace MGTK.Controls
             get
             {
                 if (fontHeight <= 0)
-                    fontHeight = Drawing.GetBMFontHeight(Font);
+                    fontHeight = DrawingService.GetBMFontHeight(Font);
 
                 return fontHeight;
             }
@@ -564,7 +564,7 @@ namespace MGTK.Controls
 
         public override void Draw()
         {
-            Drawing.DrawRectangle(spriteBatch, Theme.Dot, Color.White, OwnerX + X, OwnerY + Y, Width, Height, Z - 0.0014f);
+            DrawingService.DrawRectangle(spriteBatch, Theme.Dot, Color.White, OwnerX + X, OwnerY + Y, Width, Height, Z - 0.0014f);
 
             for (int i = ScrollY; i < ScrollY + NrItemsVisible && i < internalText.Count; i++)
             {
@@ -578,7 +578,7 @@ namespace MGTK.Controls
 
                 itemText = itemText.Substring(ScrollX, internalText[i].NrCharsVisible);
 
-                Drawing.DrawBMString(spriteBatch, Font, itemText, X + OwnerX + TextXPadding,
+                DrawingService.DrawBMString(spriteBatch, Font, itemText, X + OwnerX + TextXPadding,
                     Y + OwnerY + (i - ScrollY) * FontHeight, ForeColor, Z - 0.0015f);
 
                 if (Focused && Owner.Focused)
@@ -587,10 +587,10 @@ namespace MGTK.Controls
                     {
                         int stringSize = 0;
 
-                        stringSize = Drawing.MeasureString(Font, internalText[i].Text.Substring(ScrollX, CursorX - ScrollX)) + 1;
+                        stringSize = DrawingService.MeasureString(Font, internalText[i].Text.Substring(ScrollX, CursorX - ScrollX)) + 1;
 
                         if (stringSize + Theme.TextCursor.Width + TextXPadding < Width)
-                            Drawing.DrawRectangle(spriteBatch, Theme.TextCursor, Color.White, TextXPadding +
+                            DrawingService.DrawRectangle(spriteBatch, Theme.TextCursor, Color.White, TextXPadding +
                                 X + OwnerX + stringSize,
                                 Y + OwnerY + (i - ScrollY) * FontHeight, Theme.TextCursor.Width, FontHeight - 1, Z - 0.0016f);
                     }

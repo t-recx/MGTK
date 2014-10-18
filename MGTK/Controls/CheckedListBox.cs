@@ -50,8 +50,8 @@ namespace MGTK.Controls
 
         private CheckBox GetNewCheckBox(bool _checked)
         {
-            return new CheckedListBoxCheckBox(Owner) { Parent = innerListBox.Parent, Width = Drawing.GetBMFontHeight(Font), 
-				Height = Drawing.GetBMFontHeight(Font), Checked = _checked };
+            return new CheckedListBoxCheckBox(Owner) { Parent = innerListBox.Parent, Width = DrawingService.GetBMFontHeight(Font), 
+				Height = DrawingService.GetBMFontHeight(Font), Checked = _checked };
         }
 
         private void ConfigureCheckBoxes()

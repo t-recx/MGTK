@@ -13,6 +13,8 @@ using MGTK.EventArguments;
 using MGTK.Services;
 using MGTK.Messaging;
 using MGTK.Theming;
+using MGTK.Interfaces.Services;
+using MGTK.Factories;
 
 namespace MGTK.Controls
 {
@@ -57,6 +59,23 @@ namespace MGTK.Controls
         protected int minimumWidth = 0, minimumHeight = 0, maximumWidth = Int32.MaxValue, maximumHeight = Int32.MaxValue;
 
         private int VisibleWidth, VisibleHeight;
+
+		private IDrawingService _DrawingService = null;
+
+		public IDrawingService DrawingService
+		{
+			get
+			{
+				if (_DrawingService == null)
+					_DrawingService = DrawingServiceFactory.GetSingletonInstance ();
+
+				return _DrawingService;
+			}
+			set
+			{
+				_DrawingService = value;
+			}
+		}
 
         public int MinimumWidth
         {
@@ -649,7 +668,7 @@ namespace MGTK.Controls
         public virtual void Draw()
         {
             if (Theme != null)
-                Drawing.DrawRectangle(spriteBatch, Theme.Dot, BackColor, OwnerX + X, OwnerY + Y, Width, Height, Z);
+                DrawingService.DrawRectangle(spriteBatch, Theme.Dot, BackColor, OwnerX + X, OwnerY + Y, Width, Height, Z);
         }
 
         public virtual void Update()

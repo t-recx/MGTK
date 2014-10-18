@@ -102,7 +102,7 @@ namespace MGTK.Controls
 
         public override void Draw()
         {
-            Drawing.Draw(spriteBatch, Image, imageX, imageY, imageWidth, imageHeight, Color.White, SizeMode == PictureBoxSizeMode.Stretch, Z - 0.0001f);
+            DrawingService.Draw(spriteBatch, Image, imageX, imageY, imageWidth, imageHeight, Color.White, SizeMode == PictureBoxSizeMode.Stretch, Z - 0.0001f);
 
  	        base.Draw();
         }

@@ -74,12 +74,14 @@
     <Compile Include="Controls\WindowSizeBar.cs" />
     <Compile Include="Controls\TextBox.cs" />
     <Compile Include="Services\WindowManager.cs" />
-    <Compile Include="Services\Drawing.cs" />
     <Compile Include="EventArguments\ControlKeyEventArgs.cs" />
     <Compile Include="EventArguments\TextChangingEventArgs.cs" />
     <Compile Include="Messaging\Messages.cs" />
     <Compile Include="Theming\Theme.cs" />
     <Compile Include="Theming\ThemeIO.cs" />
+    <Compile Include="Interfaces\Services\IDrawingService.cs" />
+    <Compile Include="Services\DrawingService.cs" />
+    <Compile Include="Factories\DrawingServiceFactory.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
@@ -90,5 +92,8 @@
     <Folder Include="EventArguments\" />
     <Folder Include="Messaging\" />
     <Folder Include="Theming\" />
+    <Folder Include="Interfaces\" />
+    <Folder Include="Interfaces\Services\" />
+    <Folder Include="Factories\" />
   </ItemGroup>
 </Project>

@@ -90,9 +90,9 @@ namespace MGTK.Controls
 
         public override void Draw()
         {
-            Drawing.Draw(spriteBatch, GetControlImage(), new Vector2(OwnerX + X, OwnerY + Y), Color.White, Z);
-            Drawing.DrawBMTextShadow(spriteBatch, Font, Text, OwnerX + X + GetControlImage().Width + 1, OwnerY + Y + GetControlImage().Height / 2 - 
-			                         Drawing.GetBMFontHeight(Font) / 2, ForeColor, null, Z);
+            DrawingService.Draw(spriteBatch, GetControlImage(), new Vector2(OwnerX + X, OwnerY + Y), Color.White, Z);
+            DrawingService.DrawBMTextShadow(spriteBatch, Font, Text, OwnerX + X + GetControlImage().Width + 1, OwnerY + Y + GetControlImage().Height / 2 - 
+			                         DrawingService.GetBMFontHeight(Font) / 2, ForeColor, null, Z);
             //base.Draw();
         }
     }

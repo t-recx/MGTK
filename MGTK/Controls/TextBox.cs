@@ -167,7 +167,7 @@ namespace MGTK.Controls
 
         public override void Draw()
         {
-            Drawing.DrawFrame(spriteBatch, Theme.TextBoxFrame, OwnerX + X,
+            DrawingService.DrawFrame(spriteBatch, Theme.TextBoxFrame, OwnerX + X,
                 OwnerY + Y, Width, Height, Z - 0.001f);
 
             horizontalScrollbar.Z = verticalScrollbar.Z = Z - 0.0015f;

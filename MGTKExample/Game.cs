@@ -19,13 +19,22 @@ namespace MGTKExample
         SpriteBatch _SpriteBatch;
 		WindowManager _WindowManager;
 
+		int _Width = 1024, _Height = 768;
+
+		bool _FullScreen = true;
+
         public Game()
         {
-            _Graphics = new GraphicsDeviceManager(this);
-			_WindowManager = new WindowManager(640, 480);
+			_Graphics = new GraphicsDeviceManager(this);
 			
+			_WindowManager = new WindowManager(_Width, _Height);
+
+			IsMouseVisible = false;
+
             Content.RootDirectory = "Content";
-        }
+        
+			SetResolution();
+		}
 
         protected override void Initialize()
         {
@@ -62,9 +71,11 @@ namespace MGTKExample
             _WindowManager.Forms.Add(testForm4);
         }
 
-        protected override void Update(GameTime gameTime)
-        {
-            _WindowManager.Update(gameTime);
+        protected override void Update (GameTime gameTime)
+		{            
+			SetResolution ();
+
+			_WindowManager.Update(gameTime);
 
 			base.Update(gameTime);
         }
@@ -81,5 +92,17 @@ namespace MGTKExample
 
 			base.Draw(gameTime);
         }
+
+		void SetResolution()
+		{
+			_Graphics.PreferredBackBufferWidth = _Width;
+			_Graphics.PreferredBackBufferHeight = _Height;
+
+			_Graphics.IsFullScreen = _FullScreen;
+
+			_Graphics.ApplyChanges();
+
+			Window.AllowUserResizing = true;
+		}
     }
 }

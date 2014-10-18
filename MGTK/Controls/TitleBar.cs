@@ -208,8 +208,8 @@ namespace MGTK.Controls
             else
                 TitleBarFrame = Theme.TitleBarUnfocusedFrame;
 
-            Drawing.DrawFrame(spriteBatch, TitleBarFrame, Owner.X + X, Owner.Y + Y, Owner.Width, TitleBarHeight, Z - 0.00001f);
-            Drawing.DrawBMCenteredText(spriteBatch, Font, Text, Owner.X + X + Width / 2, Owner.Y + Y + Height / 2 - Drawing.GetBMFontHeight(Font) / 2 + 1, 
+            DrawingService.DrawFrame(spriteBatch, TitleBarFrame, Owner.X + X, Owner.Y + Y, Owner.Width, TitleBarHeight, Z - 0.00001f);
+            DrawingService.DrawBMCenteredText(spriteBatch, Font, Text, Owner.X + X + Width / 2, Owner.Y + Y + Height / 2 - DrawingService.GetBMFontHeight(Font) / 2 + 1, 
                 Owner.Focused ? TextColorFocused : TextColorUnfocused, null, Z - 0.001f);
 
             //base.Draw();

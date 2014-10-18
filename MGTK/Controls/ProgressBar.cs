@@ -80,8 +80,8 @@ namespace MGTK.Controls
 
         public override void Draw()
         {
-            Drawing.DrawFrame(spriteBatch, Theme.ProgressBarFrame, OwnerX + X, OwnerY + Y, Width, Height, Z - 0.00001f);
-            Drawing.DrawRectangle(spriteBatch, Theme.Dot, ForeColor, 
+            DrawingService.DrawFrame(spriteBatch, Theme.ProgressBarFrame, OwnerX + X, OwnerY + Y, Width, Height, Z - 0.00001f);
+            DrawingService.DrawRectangle(spriteBatch, Theme.Dot, ForeColor, 
                 OwnerX + X + paddingLeft + 1, OwnerY + Y + paddingUp + 1,
                 GetBarWidth() - 1, Height - paddingDown - paddingUp - 1, Z - 0.0002f);
 

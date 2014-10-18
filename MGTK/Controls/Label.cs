@@ -21,7 +21,7 @@ namespace MGTK.Controls
 
         public override void Draw()
         {
-			Drawing.DrawBMString(spriteBatch, Font, Text, OwnerX + X, OwnerY + Y, ForeColor, Z - 0.00001f);
+			DrawingService.DrawBMString(spriteBatch, Font, Text, OwnerX + X, OwnerY + Y, ForeColor, Z - 0.00001f);
 
             base.Draw();
         }

@@ -79,18 +79,18 @@ namespace MGTK.Controls
             if (Frame != null)
             {
                 if (Pressed)
-                    Drawing.DrawFrame(spriteBatch, FramePressed, OwnerX + X, OwnerY + Y, Width, Height, Z);
+                    DrawingService.DrawFrame(spriteBatch, FramePressed, OwnerX + X, OwnerY + Y, Width, Height, Z);
                 else
-                    Drawing.DrawFrame(spriteBatch, Frame, OwnerX + X, OwnerY + Y, Width, Height, Z);
+                    DrawingService.DrawFrame(spriteBatch, Frame, OwnerX + X, OwnerY + Y, Width, Height, Z);
             }
 
             if (Text != null)
-                Drawing.DrawBMCenteredText(spriteBatch, Font, Text, OwnerX + X + Width / 2 + (Pressed && DepressTextOnPress ? 1 : 0), 
-                    OwnerY + Y + Height / 2 - Drawing.GetBMFontHeight(Font) / 2
+                DrawingService.DrawBMCenteredText(spriteBatch, Font, Text, OwnerX + X + Width / 2 + (Pressed && DepressTextOnPress ? 1 : 0), 
+                    OwnerY + Y + Height / 2 - DrawingService.GetBMFontHeight(Font) / 2
                     + (Pressed && DepressTextOnPress ? 1 : 0) - 1, ForeColor, null, Z - 0.001f);
 
             if (Image != null)
-                Drawing.Draw(spriteBatch, Image,
+                DrawingService.Draw(spriteBatch, Image,
                     new Vector2(OwnerX + X + Width / 2 - Image.Width / 2 + (Pressed && DepressImageOnPress ? 1 : 0), OwnerY + Y + Height / 2 - Image.Height / 2 +
                         (Pressed && DepressImageOnPress ? 1 : 0)), Color.White, Z - 0.001f);
 

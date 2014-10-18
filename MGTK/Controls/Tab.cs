@@ -69,7 +69,7 @@ namespace MGTK.Controls
             get
             {
                 if (!tabPageHeight.HasValue)
-                    tabPageHeight = Drawing.GetBMFontHeight(Font) + 1;
+                    tabPageHeight = DrawingService.GetBMFontHeight(Font) + 1;
 
                 return tabPageHeight.Value;
             }
@@ -149,7 +149,7 @@ namespace MGTK.Controls
             for (int i = 0; i < TabButtons.Count; i++)
                 TabButtons[i].Z = Z - 0.0025f;
 
-            Drawing.DrawFrame(spriteBatch, MainFrame, OwnerX + X, OwnerY + Y + TabPageHeight, 
+            DrawingService.DrawFrame(spriteBatch, MainFrame, OwnerX + X, OwnerY + Y + TabPageHeight, 
                 Width, Height - TabPageHeight, Z - 0.001f);
 
             //base.Draw();
