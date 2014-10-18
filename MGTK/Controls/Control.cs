@@ -458,14 +458,6 @@ namespace MGTK.Controls
             }
         }
 
-        protected GraphicsDevice graphicsDevice
-        {
-            get
-            {
-                return WindowManager.graphicsDevice;
-            }
-        }
-
         protected SpriteBatch spriteBatch
         {
             get

@@ -34,7 +34,6 @@ namespace MGTK.Services
 
         private Keys[] PreviousKeysPressed = null;
 
-        public GraphicsDevice graphicsDevice;
         public SpriteBatch spriteBatch;
 
         public GameTime gameTime;
@@ -69,9 +68,8 @@ namespace MGTK.Services
             Forms = new List<Form>();        
 		}
 
-        public void Draw(GraphicsDevice gDevice, SpriteBatch sBatch)
+        public void Draw(SpriteBatch sBatch)
         {
-            graphicsDevice = gDevice;
             spriteBatch = sBatch;
 
             InitializeFormsNotInitialized();

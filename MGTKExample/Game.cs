@@ -86,7 +86,7 @@ namespace MGTKExample
 			
             GraphicsDevice.Clear(Color.Black);
 
-            _WindowManager.Draw(GraphicsDevice, _SpriteBatch);
+            _WindowManager.Draw(_SpriteBatch);
 
             _SpriteBatch.End();
 
